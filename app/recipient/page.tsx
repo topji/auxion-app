@@ -72,10 +72,9 @@ export default function RecipientPage() {
         }
 
         // Check if verification is pending
-        const response = await fetch(`http://localhost:5001/verificationSent/${accounts[0].address}`)
+        const response = await fetch(`http://13.216.69.155:5001/verificationSent/${accounts[0].address}`)
         const data = await response.json()
         setIsVerificationSent(data.verified)
-        
       } catch (error) {
         console.error('Error checking status:', error)
       } finally {
@@ -107,7 +106,7 @@ export default function RecipientPage() {
       }
       formData.append('identityProof', recipientForm.idProof)
 
-      const response = await fetch('http://localhost:5001/verificationRequest', {
+      const response = await fetch('http://13.216.69.155:5001/verificationRequest', {
         method: 'POST',
         body: formData,
       })
